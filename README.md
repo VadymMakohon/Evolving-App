@@ -29,3 +29,14 @@ This is a simple GUI application built using Python's Tkinter library. The appli
 
 - The application window will appear where you can enter text and submit it.
 
+### License
+
+This project is open-source and has a MIT license. Feel free to modify and distribute it as needed.
+
+### Show your support
+
+Give a ⭐ if you like these projects!
+
+# Contributors
+
+- [Vadym Makohon](https://github.com/VadymMakohon)
