@@ -13,6 +13,10 @@ class SimpleApp:
 
         self.entry = tk.Entry(root, font=("Arial", 12))
         self.entry.pack(pady=5)
+        self.entry.bind("<KeyRelease>", self.update_character_count)  # Update count on key release
+
+        self.counter_label = tk.Label(root, text="Character count: 0", font=("Arial", 10))
+        self.counter_label.pack(pady=5)
 
         self.button_frame = tk.Frame(root)
         self.button_frame.pack(pady=10)
@@ -31,14 +35,20 @@ class SimpleApp:
         if user_input:
             messagebox.showinfo("Message", f"You entered: {user_input}")
             self.entry.delete(0, tk.END)
+            self.update_character_count()
         else:
             messagebox.showwarning("Warning", "Please enter something!")
-    
+
     def on_clear(self):
         self.entry.delete(0, tk.END)
-    
+        self.update_character_count()
+
     def on_exit(self):
         self.root.destroy()
+
+    def update_character_count(self, event=None):
+        count = len(self.entry.get())
+        self.counter_label.config(text=f"Character count: {count}")
 
 if __name__ == "__main__":
     root = tk.Tk()
