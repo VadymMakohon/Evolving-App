@@ -44,6 +44,7 @@ class SimpleApp:
         self.update_character_count()
 
     def on_exit(self):
+    if messagebox.askyesno("Exit", "Are you sure you want to exit?"):
         self.root.destroy()
 
     def update_character_count(self, event=None):
