@@ -5,7 +5,7 @@ class SimpleApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Evolving App")
-        self.root.geometry("300x200")
+        self.root.geometry("350x250")
         self.root.resizable(False, False)
 
         self.label = tk.Label(root, text="Enter something:", font=("Arial", 12))
