@@ -13,7 +13,7 @@ class SimpleApp:
 
         self.entry = tk.Entry(root, font=("Arial", 12))
         self.entry.pack(pady=5)
-        self.entry.bind("<KeyRelease>", self.update_character_count)  # Update count on key release
+        self.entry.bind("<KeyRelease>", self.update_character_count)
 
         self.counter_label = tk.Label(root, text="Character count: 0", font=("Arial", 10))
         self.counter_label.pack(pady=5)
@@ -21,14 +21,16 @@ class SimpleApp:
         self.button_frame = tk.Frame(root)
         self.button_frame.pack(pady=10)
 
-        self.submit_button = tk.Button(self.button_frame, text="Submit", command=self.on_submit, font=("Arial", 12))
+        self.submit_button = tk.Button(self.button_frame, text="Submit", command=self.on_submit, font=("Arial", 12), bg="lightblue")
         self.submit_button.grid(row=0, column=0, padx=5)
 
-        self.clear_button = tk.Button(self.button_frame, text="Clear", command=self.on_clear, font=("Arial", 12))
+        self.clear_button = tk.Button(self.button_frame, text="Clear", command=self.on_clear, font=("Arial", 12), bg="lightgray")
         self.clear_button.grid(row=0, column=1, padx=5)
 
-        self.exit_button = tk.Button(self.button_frame, text="Exit", command=self.on_exit, font=("Arial", 12), fg="red")
+        self.exit_button = tk.Button(self.button_frame, text="Exit", command=self.on_exit, font=("Arial", 12), fg="red", bg="lightcoral")
         self.exit_button.grid(row=0, column=2, padx=5)
+
+        self.entry.focus_set()
 
     def on_submit(self):
         user_input = self.entry.get().strip()
@@ -44,8 +46,8 @@ class SimpleApp:
         self.update_character_count()
 
     def on_exit(self):
-    if messagebox.askyesno("Exit", "Are you sure you want to exit?"):
-        self.root.destroy()
+        if messagebox.askyesno("Exit", "Are you sure you want to exit?"):
+            self.root.destroy()
 
     def update_character_count(self, event=None):
         count = len(self.entry.get())
